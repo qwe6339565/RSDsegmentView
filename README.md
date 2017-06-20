@@ -20,4 +20,5 @@
         }];
     };
     
+ ![](https://github.com/qwe6339565/RSDsegmentView/blob/master/p1.png)   
 详见demo
