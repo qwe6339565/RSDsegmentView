@@ -84,6 +84,7 @@
 		81E257CE1EF8C3CE00206E12 = {
 			isa = PBXGroup;
 			children = (
+				81E2580D1EF8C40700206E12 /* RSDsgementView */,
 				81E257D91EF8C3CE00206E12 /* RSDsegmentViewDemo */,
 				81E257F31EF8C3CF00206E12 /* RSDsegmentViewDemoTests */,
 				81E257FE1EF8C3CF00206E12 /* RSDsegmentViewDemoUITests */,
@@ -104,7 +105,6 @@
 		81E257D91EF8C3CE00206E12 /* RSDsegmentViewDemo */ = {
 			isa = PBXGroup;
 			children = (
-				81E2580D1EF8C40700206E12 /* RSDsgementView */,
 				81E257DD1EF8C3CE00206E12 /* AppDelegate.h */,
 				81E257DE1EF8C3CE00206E12 /* AppDelegate.m */,
 				81E257E01EF8C3CE00206E12 /* ViewController.h */,
@@ -150,7 +150,8 @@
 				81E2580E1EF8C41100206E12 /* RSDsegmentView.h */,
 				81E2580F1EF8C41100206E12 /* RSDsegmentView.m */,
 			);
-			path = RSDsgementView;
+			name = RSDsgementView;
+			path = RSDsegmentViewDemo/RSDsgementView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -523,6 +524,7 @@
 				81E258061EF8C3CF00206E12 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		81E258071EF8C3CF00206E12 /* Build configuration list for PBXNativeTarget "RSDsegmentViewDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -531,6 +533,7 @@
 				81E258091EF8C3CF00206E12 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		81E2580A1EF8C3CF00206E12 /* Build configuration list for PBXNativeTarget "RSDsegmentViewDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -539,6 +542,7 @@
 				81E2580C1EF8C3CF00206E12 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
