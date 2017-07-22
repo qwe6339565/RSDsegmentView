@@ -13,10 +13,11 @@
 
 @interface RSDsegmentView()
 {
-    UIButton *_tempBtn;
-    UIView *_line;
+    UIButton       *_tempBtn;
+    UIView         *_line;
     NSMutableArray *_btnArray;
 }
+@property (nonatomic,strong) UIScrollView  *scrollView;
 
 @end
 
@@ -66,6 +67,8 @@
     if(_titles.count == 0) return;
     NSInteger count = _titles.count;
     CGFloat w = self.frame.size.width/count;
+    w = w < 100 ? 100 : w;
+    self.scrollView.contentSize = CGSizeMake(_titles.count*w, self.frame.size.height);
     
     for (int i = 0; i < count; i++)
     {
@@ -77,12 +80,12 @@
         [btn setTitleColor:_itemColor forState:UIControlStateSelected];
         [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
         [_btnArray addObject:btn];
-        [self addSubview:btn];
+        [self.scrollView addSubview:btn];
     }
     
-    _line = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height-kBtnHeight, w, kBtnHeight)];
+    _line = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height-kBtnHeight-5, w, kBtnHeight)];
     _line.backgroundColor = _itemColor;
-    [self addSubview:_line];
+    [self.scrollView addSubview:_line];
     
 }
 
@@ -108,15 +111,38 @@
            obj.selected = NO;
        }
     }];
-    //移动线
+    
     CGFloat lineX = btn.frame.origin.x;
     CGFloat lineY = _line.frame.origin.y;
     CGFloat lineW = _line.frame.size.width;
     CGFloat lineH = _line.frame.size.height;
+    //改变scrollview 的偏移量
+    if (lineX + lineW > self.frame.size.width ) {
+        [UIView animateWithDuration:0.5 animations:^{
+            self.scrollView.contentOffset = CGPointMake(lineX, 0);
+        }];
+    }
+    else
+    {
+        [UIView animateWithDuration:0.5 animations:^{
+            self.scrollView.contentOffset = CGPointMake(0, 0);
+        }];
+    }
+    
+    //改变下划线
     [UIView animateWithDuration:0.5 animations:^{
         _line.frame = CGRectMake(lineX, lineY, lineW, lineH);
     }];
 
 }
 
+#pragma mark getter
+-(UIScrollView *)scrollView
+{
+    if (!_scrollView) {
+        _scrollView = [[UIScrollView alloc] initWithFrame:self.frame];
+        [self addSubview:_scrollView];
+    }
+    return _scrollView;
+}
 @end
